@@ -28,6 +28,9 @@
       "@nuxt/types"
     ]
   },
+  "files": [
+    "types/aos.d.ts"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",
