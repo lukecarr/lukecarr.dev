@@ -29,9 +29,7 @@ export default {
 
     script: [
       {
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js',
-        integrity: 'sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=',
-        crossorigin: 'anonymous'
+        src: '/js/aos.js',
       }
     ]
   },
@@ -40,7 +38,10 @@ export default {
     color: '#fff'
   },
 
-  css: ['~/assets/scss/base.scss', 'aos/dist/aos.css'],
+  css: [
+    '~/assets/css/aos.css',
+    '~/assets/scss/base.scss'
+  ],
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss']
 }

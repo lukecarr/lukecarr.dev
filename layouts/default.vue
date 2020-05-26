@@ -2,5 +2,5 @@
   #luke
     nuxt
     script.
-      AOS.init();
+      window.onload = () => AOS.init();
 </template>
