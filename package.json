@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
+    "aos": "^2.3.4",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.7.2"
   },

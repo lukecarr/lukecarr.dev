@@ -25,12 +25,6 @@ export default {
         href:
           'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'
       }
-    ],
-
-    script: [
-      {
-        src: '/js/aos.js',
-      }
     ]
   },
 
@@ -38,8 +32,14 @@ export default {
     color: '#fff'
   },
 
+  plugins: [
+    {
+      src: '@/plugins/aos',
+      ssr: false
+    }
+  ],
+
   css: [
-    '~/assets/css/aos.css',
     '~/assets/scss/base.scss'
   ],
 
