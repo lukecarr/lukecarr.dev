@@ -25,6 +25,14 @@ export default {
         href:
           'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'
       }
+    ],
+
+    script: [
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js',
+        integrity: 'sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=',
+        crossorigin: 'anonymous'
+      }
     ]
   },
 
