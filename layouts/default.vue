@@ -8,7 +8,9 @@ import sal from 'sal.js'
 
 @Component({
   mounted() {
-    sal()
+    window.addEventListener('load', () => {
+      sal()
+    })
   }
 })
 export default class DefaultLayout extends Vue {}
