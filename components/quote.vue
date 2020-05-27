@@ -8,18 +8,18 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'Quote',
+  name: 'Quote'
 })
 export default class Quote extends Vue {
   @Prop({
-    default: '',
+    default: ''
   })
-  text!: string;
+  text!: string
 
   @Prop({
-    default: '',
+    default: ''
   })
-  author!: string;
+  author!: string
 }
 </script>
 

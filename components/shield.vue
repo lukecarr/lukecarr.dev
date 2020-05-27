@@ -6,36 +6,38 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'Shield',
+  name: 'Shield'
 })
 export default class Shield extends Vue {
   @Prop({
-    default: '',
+    default: ''
   })
-  left!: string;
+  left!: string
 
   @Prop({
-    default: '',
+    default: ''
   })
-  right!: string;
+  right!: string
 
   @Prop({
-    default: 'brightgreen',
+    default: 'brightgreen'
   })
-  color!: string;
+  color!: string
 
   get title() {
-    return `${this.left} ${this.right}`;
+    return `${this.left} ${this.right}`
   }
 
   get src() {
-    return `https://img.shields.io/badge/${encodeURIComponent(this.left)}-${encodeURIComponent(this.right)}-${this.color}`;
+    return `https://img.shields.io/badge/${encodeURIComponent(
+      this.left
+    )}-${encodeURIComponent(this.right)}-${this.color}`
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .shield {
-    height: 24px;
-  }
+.shield {
+  height: 24px;
+}
 </style>

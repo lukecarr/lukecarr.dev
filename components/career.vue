@@ -12,33 +12,33 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'Career',
+  name: 'Career'
 })
 export default class Career extends Vue {
   @Prop({
-    default: '',
+    default: ''
   })
-  name!: string;
+  name!: string
 
   @Prop({
-    default: '',
+    default: ''
   })
-  period!: string;
+  period!: string
 
   @Prop({
-    default: '',
+    default: ''
   })
-  role!: string;
+  role!: string
 
   @Prop({
-    default: '',
+    default: ''
   })
-  description!: string;
+  description!: string
 }
 </script>
 
 <style lang="scss" scoped>
-  .career > aside {
-    width: 300px;
-  }
+.career > aside {
+  width: 300px;
+}
 </style>

@@ -8,13 +8,13 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'Hero',
+  name: 'Hero'
 })
 export default class Hero extends Vue {
   @Prop({
-    default: '',
+    default: ''
   })
-  backgroundUrl!: string;
+  backgroundUrl!: string
 }
 </script>
 

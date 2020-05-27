@@ -37,7 +37,7 @@ import Career from '@/components/career.vue'
     Hero,
     Shield,
     Quote,
-    Career,
+    Career
   },
   head() {
     return {
@@ -50,19 +50,19 @@ export default class IndexPage extends Vue {
     {
       left: 'github',
       right: 'lukecarr',
-      href: 'https://github.com/lukecarr',
+      href: 'https://github.com/lukecarr'
     },
     {
       left: 'twitter',
       right: '@imlukecarr',
       color: '00aced',
-      href: 'https://twitter.com/imlukecarr',
+      href: 'https://twitter.com/imlukecarr'
     },
     {
       left: 'buy me a',
       right: 'coffee',
       color: 'ff5e5b',
-      href: 'https://ko-fi.com/lukecarr',
+      href: 'https://ko-fi.com/lukecarr'
     }
   ]
 
@@ -99,7 +99,7 @@ export default class IndexPage extends Vue {
   background-image: url('~assets/img/hero.jpg');
 }
 
-section:nth-child(2n+1) {
+section:nth-child(2n + 1) {
   background: #5c677d;
 }
 
