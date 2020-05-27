@@ -22,6 +22,8 @@
         h2#education.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Education
         .education
           career(v-for="(item, index) in education", :key="item.name", :name="item.name", :period="item.period", :description="item.description", :data-sal-delay="200 + (index + 1) * 150")
+    script.
+      window.onload = () => sal();
 </template>
 
 <script lang="ts">
