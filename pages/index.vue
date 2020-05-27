@@ -1,48 +1,44 @@
 <template lang="pug">
   #home
-    .hero.min-h-screen.flex.items-center.justify-center
-      div.text-center
-        h1.text-6xl.font-bold(data-sal="fade", data-sal-duration="1500") Hi. My name is Luke.
-        p.text-xl.font-light(data-sal="slide-up", data-sal-delay="1500") Scroll down if you'd like to find out more!
-    .container.py-8(data-sal="slide-up", data-sal-delay="100")
-      h2.text-6xl.font-black Luke Carr
-      .socials
-        a.ml-4(v-for="social in socials", :key="social.title", :href="social.href", :title="social.title", target="_blank")
-          img.inline-block(:src="social.shield", :alt="social.title")
-      p#bio.text-xl.font-semibold.my-8.py-1.pl-6.border-l-4 I'm an 18 y/o developer working on various open source projects relating to e-learning and privacy.<br><br>I spend most of my time inside Node.js and I love writing code that's not just functional but beautiful as well.<br><br>I believe society would collapse without TypeScript or Conventional Commits.
-    div(style="background: #5c677d")
+    hero
+      h1.text-6xl.font-bold(data-sal="fade", data-sal-duration="1500") Hi. My name is Luke.
+      p.text-xl.font-light(data-sal="slide-up", data-sal-delay="1500") Scroll down if you'd like to find out more!
+    section
+      .container.py-8(data-sal="slide-up", data-sal-delay="100")
+        h2.text-6xl.font-black Luke Carr
+        .shields
+          a.ml-4(v-for="shield in shields", :key="shield.title", :href="shield.href", :title="shield.title", target="_blank")
+            shield(:left="shield.left", :right="shield.right", :color="shield.color")
+        p#bio.text-xl.font-semibold.my-8.py-1.pl-6.border-l-4 I'm an 18 y/o developer working on various open source projects relating to e-learning and privacy.<br><br>I spend most of my time inside Node.js and I love writing code that's not just functional but beautiful as well.<br><br>I believe society would collapse without TypeScript or Conventional Commits.
+    section
       .container.pt-12.pb-24
-        .quote.border-l-4.mb-16.p-4(data-sal="fade")
-          p.text-lg(data-sal="slide-left") Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.
-          p.text-xl.font-bold(data-sal="slide-up") Lionardo di ser Piero da Vinci
+        quote(text="Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.", author="Lionardo di ser Piero da Vinci")
         h2#careers.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Careers
         .careers
-          .flex.py-6.border-b-2(v-for="(career, index) in careers", :key="career.name", data-sal="slide-right", :data-sal-delay="200 + (index + 1) * 150")
-            div
-              h3.text-3xl.font-bold {{ career.name }}
-              p.text-lg.font-medium {{ career.period }}
-              p.text-xl.font-bold {{ career.role }}
-            .flex-1.pl-8
-              p.text-lg(v-html="career.description")
-    .container.pt-12.pb-24
-      .quote.border-l-4.mb-16.p-4(data-sal="fade")
-        p.text-lg(data-sal="slide-left") Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.
-        p.text-xl.font-bold(data-sal="slide-up") Sir Jony Ives
-      h2#education.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Education
-      .education
-        .flex.py-6.border-b-2(v-for="(item, index) in education", :key="item.name", data-sal="slide-right", :data-sal-delay="200 + (index + 1) * 150")
-          div
-            h3.text-3xl.font-bold {{ item.name }}
-            p.text-lg.font-medium {{ item.period }}
-          .flex-1.pl-8
-            p.text-lg(v-html="item.description")
+          career(v-for="(career, index) in careers", :key="career.name", :name="career.name", :period="career.period", :role="career.role", :description="career.description", :data-sal-delay="200 + (index + 1) * 150")
+    section
+      .container.pt-12.pb-24
+        quote(text="Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.", author="Sir Jonathan Paul Ive")
+        h2#education.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Education
+        .education
+          career(v-for="(item, index) in education", :key="item.name", :name="item.name", :period="item.period", :description="item.description", :data-sal-delay="200 + (index + 1) * 150")
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import Hero from '@/components/hero.vue'
+import Shield from '@/components/shield.vue'
+import Quote from '@/components/quote.vue'
+import Career from '@/components/career.vue'
 
 @Component({
   name: 'IndexPage',
+  components: {
+    Hero,
+    Shield,
+    Quote,
+    Career,
+  },
   head() {
     return {
       title: 'Home'
@@ -50,21 +46,23 @@ import { Component, Vue } from 'nuxt-property-decorator'
   }
 })
 export default class IndexPage extends Vue {
-  socials = [
+  shields = [
     {
-      title: 'GitHub',
+      left: 'github',
+      right: 'lukecarr',
       href: 'https://github.com/lukecarr',
-      shield: 'https://img.shields.io/badge/github-lukecarr-brightgreen'
     },
     {
-      title: 'Twitter',
+      left: 'twitter',
+      right: '@imlukecarr',
+      color: '00aced',
       href: 'https://twitter.com/imlukecarr',
-      shield: 'https://img.shields.io/badge/twitter-%40imlukecarr-00aced'
     },
     {
-      title: 'Ko-fi',
+      left: 'buy me a',
+      right: 'coffee',
+      color: 'ff5e5b',
       href: 'https://ko-fi.com/lukecarr',
-      shield: 'https://img.shields.io/badge/buy%20me%20a-coffee-ff5e5b'
     }
   ]
 
@@ -97,19 +95,20 @@ export default class IndexPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.hero {
+.hero:first-of-type {
   background-image: url('~assets/img/hero.jpg');
-  background-size: cover;
-  background-attachment: fixed;
 }
 
-.socials {
+section:nth-child(2n+1) {
+  background: #5c677d;
+}
+
+.shields {
   a:first-child {
     margin-left: 0;
   }
 
   img {
-    height: 24px;
     transition: transform ease-in-out 0.2s;
     transform: scale(1);
   }
@@ -123,20 +122,8 @@ p#bio {
   border-left-color: #0466c8;
 }
 
-.quote {
-  filter: opacity(0.8);
-
-  p:first-child {
-    font-style: italic;
-  }
-}
-
-.careers .flex:last-child,
-.education .flex:last-child {
+.careers .career:last-child,
+.education .career:last-child {
   border-bottom: none;
-}
-
-.careers .flex > div:first-child {
-  width: 300px;
 }
 </style>
