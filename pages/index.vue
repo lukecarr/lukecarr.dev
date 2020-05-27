@@ -2,9 +2,9 @@
   #home
     .hero.min-h-screen.flex.items-center.justify-center
       div.text-center
-        h1.text-6xl.font-bold(data-aos="fade", data-aos-duration="1500") Hi. My name is Luke.
-        p.text-xl.font-light(data-aos="fade-up", data-aos-delay="1500") Scroll down if you'd like to find out more!
-    .container.py-8(data-aos="fade-up", data-aos-delay="100")
+        h1.text-6xl.font-bold(data-sal="fade", data-sal-duration="1500") Hi. My name is Luke.
+        p.text-xl.font-light(data-sal="slide-up", data-sal-delay="1500") Scroll down if you'd like to find out more!
+    .container.py-8(data-sal="slide-up", data-sal-delay="100")
       h2.text-6xl.font-black Luke Carr
       .socials
         a.ml-4(v-for="social in socials", :key="social.title", :href="social.href", :title="social.title", target="_blank")
@@ -12,12 +12,12 @@
       p#bio.text-xl.font-semibold.my-8.py-1.pl-6.border-l-4 I'm an 18 y/o developer working on various open source projects relating to e-learning and privacy.<br><br>I spend most of my time inside Node.js and I love writing code that's not just functional but beautiful as well.<br><br>I believe society would collapse without TypeScript or Conventional Commits.
     div(style="background: #5c677d")
       .container.pt-12.pb-24
-        .quote.border-l-4.mb-16.p-4(data-aos="fade")
-          p.text-lg(data-aos="fade-left") Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.
-          p.text-xl.font-bold(data-aos="fade-up") Lionardo di ser Piero da Vinci
-        h2#careers.text-5xl.font-black(data-aos="fade", data-aos-delay="200") Careers
+        .quote.border-l-4.mb-16.p-4(data-sal="fade")
+          p.text-lg(data-sal="slide-left") Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.
+          p.text-xl.font-bold(data-sal="slide-up") Lionardo di ser Piero da Vinci
+        h2#careers.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Careers
         .careers
-          .flex.py-6.border-b-2(v-for="(career, index) in careers", :key="career.name", data-aos="fade-right", :data-aos-delay="200 + (index + 1) * 150")
+          .flex.py-6.border-b-2(v-for="(career, index) in careers", :key="career.name", data-sal="slide-right", :data-sal-delay="200 + (index + 1) * 150")
             div
               h3.text-3xl.font-bold {{ career.name }}
               p.text-lg.font-medium {{ career.period }}
@@ -25,12 +25,12 @@
             .flex-1.pl-8
               p.text-lg(v-html="career.description")
     .container.pt-12.pb-24
-      .quote.border-l-4.mb-16.p-4(data-aos="fade")
-        p.text-lg(data-aos="fade-left") Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.
-        p.text-xl.font-bold(data-aos="fade-up") Sir Jony Ives
-      h2#education.text-5xl.font-black(data-aos="fade", data-aos-delay="200") Education
+      .quote.border-l-4.mb-16.p-4(data-sal="fade")
+        p.text-lg(data-sal="slide-left") Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.
+        p.text-xl.font-bold(data-sal="slide-up") Sir Jony Ives
+      h2#education.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Education
       .education
-        .flex.py-6.border-b-2(v-for="(item, index) in education", :key="item.name", data-aos="fade-right", :data-aos-delay="200 + (index + 1) * 150")
+        .flex.py-6.border-b-2(v-for="(item, index) in education", :key="item.name", data-sal="slide-right", :data-sal-delay="200 + (index + 1) * 150")
           div
             h3.text-3xl.font-bold {{ item.name }}
             p.text-lg.font-medium {{ item.period }}

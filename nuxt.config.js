@@ -32,16 +32,7 @@ export default {
     color: '#fff'
   },
 
-  plugins: [
-    {
-      src: '@/plugins/aos',
-      ssr: false
-    }
-  ],
-
-  css: [
-    '~/assets/scss/base.scss'
-  ],
+  css: ['sal.js/dist/sal.css', '~/assets/scss/base.scss'],
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss']
 }
