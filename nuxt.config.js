@@ -25,12 +25,6 @@ export default {
         href:
           'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'
       }
-    ],
-
-    script: [
-      {
-        src: '/sal.js'
-      }
     ]
   },
 
@@ -38,7 +32,7 @@ export default {
     color: '#fff'
   },
 
-  css: ['~/assets/scss/sal.scss', '~/assets/scss/base.scss'],
+  css: ['animate.css/animate.css', '~/assets/scss/base.scss'],
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss']
 }

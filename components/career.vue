@@ -1,5 +1,5 @@
 <template lang="pug">
-  .career.flex.py-6.border-b-2( data-sal="slide-right")
+  .career.flex.py-6.border-b-2.animate__animated.animate__fadeInRight
     aside
       h3.text-3xl.font-bold {{ name }}
       p.text-lg.font-medium {{ period }}

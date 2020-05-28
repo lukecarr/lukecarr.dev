@@ -1,10 +1,10 @@
 <template lang="pug">
   #home
     hero
-      h1.text-6xl.font-bold(data-sal="fade", data-sal-duration="1500") Hi. My name is Luke.
-      p.text-xl.font-light(data-sal="slide-up", data-sal-delay="1500") Scroll down if you'd like to find out more!
+      h1.text-6xl.font-bold.animate__animated.animate__fadeInDown Hi. My name is Luke.
+      p.text-xl.font-light.animate__animated.animate__fadeInUp Scroll down if you'd like to find out more!
     section
-      .container.py-8(data-sal="slide-up", data-sal-delay="100")
+      .container.py-8.animate__animated.animate__fadeInUp
         h2.text-6xl.font-black Luke Carr
         .shields
           a.ml-4(v-for="shield in shields", :key="shield.title", :href="shield.href", :title="shield.title", target="_blank")
@@ -13,17 +13,15 @@
     section
       .container.pt-12.pb-24
         quote(text="Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.", author="Lionardo di ser Piero da Vinci")
-        h2#careers.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Careers
+        h2#careers.text-5xl.font-black.animate__animated.animate__fadeIn Careers
         .careers
           career(v-for="(career, index) in careers", :key="career.name", :name="career.name", :period="career.period", :role="career.role", :description="career.description", :data-sal-delay="200 + (index + 1) * 150")
     section
       .container.pt-12.pb-24
         quote(text="Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.", author="Sir Jonathan Paul Ive")
-        h2#education.text-5xl.font-black(data-sal="fade", data-sal-delay="200") Education
+        h2#education.text-5xl.font-black.animate__animated.animate__fadeIn Education
         .education
           career(v-for="(item, index) in education", :key="item.name", :name="item.name", :period="item.period", :description="item.description", :data-sal-delay="200 + (index + 1) * 150")
-    script.
-      window.onload = () => sal();
 </template>
 
 <script lang="ts">
