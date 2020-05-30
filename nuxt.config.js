@@ -36,11 +36,6 @@ export default {
 
     link: [
       {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'
-      },
-      {
         rel: 'apple-touch-icon',
         sizes: '180x180',
         href: '/icons/apple-touch-icon.png?v=GvbpmoowYb'
