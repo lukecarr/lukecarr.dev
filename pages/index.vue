@@ -88,7 +88,7 @@ export default class IndexPage extends Vue {
       period: 'November 2019 - Present',
       role: 'Chief Executive Officer',
       description:
-        'In late 2019, I formed a tech startup named Omnio Interactive with a close friend.<br><br>We are currently working on several open source software packages, including a Nuxt.js based learning platform and a password manager that uses a password generation method that removes the need to store passwords all together!'
+        'In late 2019, I formed a tech startup named Omnio Interactive with a close friend.<br><br>We are currently working on a cloud-based learning platform called Omnio Cloud. We are also maintaining several open source software packages, including a CLI for scaffolding Git repositories and a Node.js API for managing secrets in AWS!'
     }
   ]
 }
