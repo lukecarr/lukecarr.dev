@@ -9,7 +9,7 @@
         .shields
           a.ml-4(v-for="shield in shields", :key="shield.title", :href="shield.href", :title="shield.title", target="_blank")
             shield(:left="shield.left", :right="shield.right", :color="shield.color")
-        p#bio.text-xl.font-semibold.my-8.py-1.pl-6.border-l-4 I'm an 18 y/o developer working on various open source projects relating to e-learning and privacy.<br><br>I spend most of my time inside Node.js and I love writing code that's not just functional but beautiful as well.<br><br>I believe society would collapse without TypeScript or Conventional Commits.
+        p#bio.text-xl.font-semibold.my-8.py-1.pl-6.border-l-4 I'm a {{age}} y/o developer working on various open source projects relating to e-learning and privacy.<br><br>I spend most of my time inside Node.js and I love writing code that's not just functional but beautiful as well.<br><br>I believe society would collapse without TypeScript or Conventional Commits.
     section
       .container.pt-12.pb-24
         quote(text="Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.", author="Lionardo di ser Piero da Vinci")
@@ -59,12 +59,17 @@ export default class IndexPage extends Vue {
       href: 'https://twitter.com/imlukecarr'
     },
     {
-      left: 'buy me a',
-      right: 'coffee',
-      color: 'ff5e5b',
-      href: 'https://ko-fi.com/lukecarr'
+      left: 'find me on',
+      right: 'linkedin',
+      color: '0072b1',
+      href: 'https://linkedin.com/in/luke-jcarr'
     }
   ]
+
+  age = Math.abs(
+    new Date(Date.now() - new Date('2001-07-30').getTime()).getUTCFullYear() -
+      1970
+  )
 
   education = [
     {
@@ -78,17 +83,24 @@ export default class IndexPage extends Vue {
   careers = [
     {
       name: 'Ted Wragg Trust',
-      period: 'May 2020 - Present',
+      period: 'July 2020 - Present',
+      role: 'Digital Learning Engineer',
+      description:
+        'As a Digital Learning Engineer at the Ted Wragg Trust, I operate closely with teaching staff across the trust to design and develop empowering solutions for the classroom that embraces technology.<br><br>With a substantial focus on automation, my role strives to reduce the time spent by teachers manually uploading and creating content on learning management systems.'
+    },
+    {
+      name: 'Ted Wragg Trust',
+      period: 'May 2020 - July 2020',
       role: 'Contractor',
       description:
-        'Starting in May 2020, I worked closely with the Ted Wragg Trust as a contractor to improve and enrich their e-learning solutions.<br><br>This contact work primarily consisted of designing and developing custom Moodle plugins to fulfil their digital learning needs.'
+        'Starting in May 2020, I worked closely with the Ted Wragg Trust as a contractor to improve and enrich their e-learning solutions.<br><br>This contract work primarily consisted of designing and developing custom Moodle plugins to fulfil their digital learning needs.'
     },
     {
       name: 'Omnio Interactive',
-      period: 'November 2019 - Present',
+      period: 'November 2019 - August 2020',
       role: 'Chief Executive Officer',
       description:
-        'In late 2019, I formed a tech startup named Omnio Interactive with a close friend.<br><br>We are currently working on a cloud-based learning platform called Omnio Cloud. We are also maintaining several open source software packages, including a CLI for scaffolding Git repositories and a Node.js API for managing secrets in AWS!'
+        'In late 2019, I formed a tech startup named Omnio Interactive with a close friend, where we worked on a cloud-based learning platform called Omnio Cloud.<br><br>In August 2020, I left Omnio Interactive to pursue a role at the Ted Wragg Trust.'
     }
   ]
 }
