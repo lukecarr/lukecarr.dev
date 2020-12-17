@@ -4,7 +4,7 @@
       h1.text-6xl.font-bold.animate__animated.animate__fadeInDown Hi 👋! My name is Luke.
       p.text-xl.font-light.animate__animated.animate__fadeInUp Scroll down if you'd like to find out more 👀!
     section
-      .container.py-8.animate__animated.animate__fadeInUp
+      .container.py-8
         h2.text-6xl.font-black Luke Carr
         .shields
           a.ml-4(v-for="shield in shields", :key="shield.title", :href="shield.href", :title="shield.title", target="_blank")
@@ -18,27 +18,26 @@
     section
       .container.pt-12.pb-24
         quote(text="Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.", author="Lionardo di ser Piero da Vinci")
-        h2#careers.text-5xl.font-black.animate__animated.animate__fadeIn Careers
+        h2#careers.text-5xl.font-black Careers
         .careers
           career(v-for="career in careers", :key="`${career.name}${career.period}${career.role}`", :name="career.name", :period="career.period", :role="career.role")
             span(v-html="career.description")
     section
       .container.pt-12.pb-24
         quote(text="Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.", author="Sir Jonathan Paul Ive")
-        h2#education.text-5xl.font-black.animate__animated.animate__fadeIn Education
+        h2#education.text-5xl.font-black Education
         .education
           career(v-for="item in education", :key="item.name", :name="item.name", :period="item.period")
             span(v-html="item.description")
     section
       .container.pt-12.pb-24
         quote(text="Any sufficiently advanced technology is indistinguishable from magic.", author="Arthur C. Clarke")
-        h2#repos.text-5xl.font-black.animate__animated.animate__fadeIn My repos
+        h2#repos.text-5xl.font-black My repos
+        p.text-xl.mb-4 Click on a clone command to copy it to your clipboard!
         .repos
-          a(v-for="repo in repos", :key="repo.id", v-if="!repo.archived", :href="repo.html_url")
-            career(:name="repo.name", :role="repo.language", :period="repo.pushed_at")
-              |<span class="text-xl">{{repo.description}}</span>
-              |<br><br>
-              |<pre class="inline rounded font-semibold p-2" style="background: rgba(0,0,0,0.2)">git clone {{repo.ssh_url}}</pre>
+          career(v-for="repo in repos", :key="repo.id", :name="repo.name", :role="`${repo.language || ''}${repo.language && repo.license ? ',' : ''} ${repo.license && (repo.license.spdx_id || repo.license.name) || ''}`", :period="repo.pushed_at")
+            span.block.text-xl.mb-4 {{repo.description}}
+            pre.inline-block.rounded.font-semibold.p-2.cursor-pointer(@click="$copyText(`git clone ${repo.ssh_url}`)") git clone {{repo.ssh_url}}
 </template>
 
 <script lang="ts">
@@ -126,7 +125,7 @@ the Ted Wragg Trust.`,
       sort: 'pushed',
     })
 
-    return { repos: data }
+    return { repos: data.filter((repo) => !repo.archived) }
   }
 }
 </script>
@@ -159,8 +158,17 @@ p#bio {
   border-left-color: #0466c8;
 }
 
-.careers .career:last-child,
-.education .career:last-child {
+.career:last-child {
   border-bottom: none;
+}
+
+.repos .career {
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  @apply mb-4 rounded p-4;
+
+  pre {
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
 </style>
