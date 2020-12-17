@@ -1,5 +1,7 @@
 export default {
-  mode: 'spa',
+  ssr: false,
+
+  target: 'static',
 
   head: {
     titleTemplate: '%s :: Luke Carr',
@@ -68,11 +70,17 @@ export default {
     ]
   },
 
-  loading: {
-    color: '#fff'
-  },
+  css: [
+    'animate.css/animate.css',
+    '~/assets/scss/base.scss',
+  ],
 
-  css: ['animate.css/animate.css', '~/assets/scss/base.scss'],
+  components: true,
 
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss']
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+  ],
+
+  modules: [],
 }
