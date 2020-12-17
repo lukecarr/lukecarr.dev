@@ -20,17 +20,30 @@
         quote(text="Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.", author="Lionardo di ser Piero da Vinci")
         h2#careers.text-5xl.font-black.animate__animated.animate__fadeIn Careers
         .careers
-          career(v-for="(career, index) in careers", :key="career.name", :name="career.name", :period="career.period", :role="career.role", :description="career.description", :data-sal-delay="200 + (index + 1) * 150")
+          career(v-for="career in careers", :key="`${career.name}${career.period}${career.role}`", :name="career.name", :period="career.period", :role="career.role")
+            span(v-html="career.description")
     section
       .container.pt-12.pb-24
         quote(text="Simplicity is not the absence of clutter, that's a consequence of simplicity. Simplicity is somehow essentially describing the purpose and place of an object and product. The absence of clutter is just a clutter-free product. That's not simple.", author="Sir Jonathan Paul Ive")
         h2#education.text-5xl.font-black.animate__animated.animate__fadeIn Education
         .education
-          career(v-for="(item, index) in education", :key="item.name", :name="item.name", :period="item.period", :description="item.description", :data-sal-delay="200 + (index + 1) * 150")
+          career(v-for="item in education", :key="item.name", :name="item.name", :period="item.period")
+            span(v-html="item.description")
+    section
+      .container.pt-12.pb-24
+        quote(text="Any sufficiently advanced technology is indistinguishable from magic.", author="Arthur C. Clarke")
+        h2#repos.text-5xl.font-black.animate__animated.animate__fadeIn My repos
+        .repos
+          a(v-for="repo in repos", :key="repo.id", v-if="!repo.archived", :href="repo.html_url")
+            career(:name="repo.name", :role="repo.language", :period="repo.pushed_at")
+              |<span class="text-xl">{{repo.description}}</span>
+              |<br><br>
+              |<pre class="inline rounded font-semibold p-2" style="background: rgba(0,0,0,0.2)">git clone {{repo.ssh_url}}</pre>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { Octokit } from '@octokit/rest'
 
 @Component({
   head() {
@@ -102,6 +115,19 @@ a cloud-based learning platform called Omnio Cloud.<br><br>In August 2020, I lef
 the Ted Wragg Trust.`,
     },
   ]
+
+  repos = []
+
+  async asyncData() {
+    const github = new Octokit()
+    const { data } = await github.repos.listForUser({
+      username: 'lukecarr',
+      type: 'owner',
+      sort: 'pushed',
+    })
+
+    return { repos: data }
+  }
 }
 </script>
 

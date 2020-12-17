@@ -5,7 +5,7 @@
       p.text-lg.font-medium {{ period }}
       p.text-xl.font-bold {{ role }}
     .flex-1.pt-8(class="md:pt-0 md:pl-8")
-      p.text-lg(v-html="description")
+      slot
 </template>
 
 <script lang="ts">
@@ -29,11 +29,6 @@ export default class Career extends Vue {
     default: '',
   })
   role!: string
-
-  @Prop({
-    default: '',
-  })
-  description!: string
 }
 </script>
 
