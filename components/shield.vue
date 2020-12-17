@@ -6,21 +6,21 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component({
-  name: 'Shield'
+  name: 'Shield',
 })
 export default class Shield extends Vue {
   @Prop({
-    default: ''
+    default: '',
   })
   left!: string
 
   @Prop({
-    default: ''
+    default: '',
   })
   right!: string
 
   @Prop({
-    default: 'brightgreen'
+    default: 'brightgreen',
   })
   color!: string
 
