@@ -43,6 +43,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { Octokit } from '@octokit/rest'
 
+const ignoreRepos = ['lukecarr']
+
 @Component({
   head() {
     return {
@@ -124,7 +126,11 @@ the Ted Wragg Trust.`,
       sort: 'pushed',
     })
 
-    return { repos: data.filter((repo) => !repo.archived) }
+    return {
+      repos: data.filter(
+        (repo) => !repo.archived && !ignoreRepos.includes(repo.name)
+      ),
+    }
   }
 }
 </script>
