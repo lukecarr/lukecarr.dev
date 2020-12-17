@@ -30,14 +30,13 @@
           career(v-for="item in education", :key="item.name", :name="item.name", :period="item.period")
             span(v-html="item.description")
     section
-      .container.pt-12.pb-24
-        quote(text="Any sufficiently advanced technology is indistinguishable from magic.", author="Arthur C. Clarke")
-        h2#repos.text-5xl.font-black My repos
-        p.text-xl.mb-4 Click on a clone command to copy it to your clipboard!
-        .repos
-          career(v-for="repo in repos", :key="repo.id", :name="repo.name", :role="`${repo.language || ''}${repo.language && repo.license ? ',' : ''} ${repo.license && (repo.license.spdx_id || repo.license.name) || ''}`", :period="repo.pushed_at")
-            span.block.text-xl.mb-4 {{repo.description}}
-            pre.inline-block.rounded.font-semibold.p-2.cursor-pointer(@click="$copyText(`git clone ${repo.ssh_url}`)") git clone {{repo.ssh_url}}
+      .pt-12.pb-24
+        .container
+          quote(text="Any sufficiently advanced technology is indistinguishable from magic.", author="Arthur C. Clarke")
+          h2#repos.text-5xl.font-black My repos
+          p.text-xl.mb-4 Click on a clone command to copy it to your clipboard!
+        .repos.grid.gap-4.grid-cols-1.px-4(class="md:grid-cols-2 xl:grid-cols-3")
+          repo(v-for="repo in repos", :key="repo.id", :name="repo.name", :push="repo.pushed_at", :language="repo.language", :license="repo.license && repo.license.spdx_id", :about="repo.description", :ssh="repo.ssh_url")
 </template>
 
 <script lang="ts">
@@ -160,15 +159,5 @@ p#bio {
 
 .career:last-child {
   border-bottom: none;
-}
-
-.repos .career {
-  border: none;
-  background: rgba(0, 0, 0, 0.2);
-  @apply mb-4 rounded p-4;
-
-  pre {
-    background: rgba(0, 0, 0, 0.4);
-  }
 }
 </style>

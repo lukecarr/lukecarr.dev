@@ -1,7 +1,7 @@
 <template lang="pug">
-  .quote.border-l-4.mb-16.p-4.animate__animated.animate__fadeIn
-    p.text-lg.animate__animated.animate__fadeInRight {{ text }}
-    p.text-xl.font-bold.animate__animated.animate__fadeInUp {{ author }}
+  .quote.border-l-4.mb-16.p-4
+    p.text-lg {{ text }}
+    p.text-xl.font-bold {{ author }}
 </template>
 
 <script lang="ts">

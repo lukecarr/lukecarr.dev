@@ -1,5 +1,5 @@
 <template lang="pug">
-  .career.flex.flex-col.py-6.border-b-2.animate__animated.animate__fadeInRight(class="md:flex-row")
+  .career.flex.flex-col.py-6.border-b-2(class="md:flex-row")
     aside
       h3.text-3xl.font-bold {{ name }}
       p.text-lg.font-medium {{ period }}
