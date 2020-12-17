@@ -36,7 +36,7 @@
           h2#repos.text-5xl.font-black My repos
           p.text-xl.mb-4 Click on a clone command to copy it to your clipboard!
         .repos.grid.gap-4.grid-cols-1.px-4(class="md:grid-cols-2 xl:grid-cols-3")
-          repo(v-for="repo in repos", :key="repo.id", :name="repo.name", :push="repo.pushed_at", :language="repo.language", :license="repo.license && repo.license.spdx_id", :about="repo.description", :ssh="repo.ssh_url")
+          repo(v-for="repo in repos", :key="repo.id", :name="repo.name", :language="repo.language", :license="repo.license && repo.license.spdx_id", :about="repo.description", :ssh="repo.ssh_url")
 </template>
 
 <script lang="ts">

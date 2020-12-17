@@ -2,11 +2,10 @@
   .repo.flex.flex-col.rounded
     .flex-1.p-4
       h3.text-3xl.font-bold {{ name }}
-      p.text-lg.font-medium {{ push }}
       p.text-xl.font-bold {{ language || '' }}{{language && license ? ',' : ''}} {{license || '' }}
       span.block.text-xl.mb-4 {{about}}
     div
-      pre.block.font-semibold.p-2.cursor-pointer(@click="$copyText(`git clone ${ssh}`)") git clone {{ssh}}
+      pre.block.text-center.font-semibold.p-2.cursor-pointer(@click="$copyText(`git clone ${ssh}`)") git clone {{ssh}}
 </template>
 
 <script lang="ts">
@@ -30,11 +29,6 @@ export default class Repo extends Vue {
     default: '',
   })
   license!: string
-
-  @Prop({
-    default: '',
-  })
-  push!: string
 
   @Prop({
     default: '',
