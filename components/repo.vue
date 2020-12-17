@@ -48,6 +48,7 @@ export default class Repo extends Vue {
 
   pre {
     background: rgba(0, 0, 0, 0.4);
+    overflow-x: hidden;
   }
 }
 </style>
